@@ -4,7 +4,7 @@ type Props = {
 	isAvailable: boolean;
 };
 
-const pClasses = "ml-1 text-sm font-semibold text-neutral-500";
+const pClasses = "ml-1 text-sm font-semibold text-black dark:text-white";
 
 export const AvailabilityMessage = ({ isAvailable }: Props) => {
 	if (!isAvailable) {

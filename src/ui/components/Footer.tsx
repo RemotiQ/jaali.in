@@ -17,18 +17,18 @@ export async function Footer({ channel }: { channel: string }) {
 					// and use app token instead
 					Authorization: `Bearer ${process.env.SALEOR_APP_TOKEN}`,
 				},
-		  })
+			})
 		: null;
 	const currentYear = new Date().getFullYear();
 
 	return (
-		<footer className="border-neutral-300 bg-neutral-50">
+		<footer className="bg-white text-black dark:bg-black dark:text-white">
 			<div className="mx-auto max-w-7xl px-4 lg:px-8">
 				<div className="grid grid-cols-3 gap-8 py-16">
 					{footerLinks.menu?.items?.map((item) => {
 						return (
 							<div key={item.id}>
-								<h3 className="text-sm font-semibold text-neutral-900">{item.name}</h3>
+								<h3 className="text-sm font-semibold">{item.name}</h3>
 								<ul className="mt-4 space-y-4 [&>li]:text-neutral-500">
 									{item.children?.map((child) => {
 										if (child.category) {

@@ -6,6 +6,7 @@ import { type Config } from "tailwindcss";
 const config: Config = {
 	content: ["./src/**/*.{ts,tsx}"],
 	plugins: [TypographyPlugin, FormPlugin, ContainerQueriesPlugin],
+	darkMode: "class",
 };
 
 export default config;
