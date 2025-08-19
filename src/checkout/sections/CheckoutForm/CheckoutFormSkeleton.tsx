@@ -6,8 +6,8 @@ import { Divider } from "@/checkout/components";
 import { AddressSectionSkeleton } from "@/checkout/components/AddressSectionSkeleton";
 
 export const CheckoutFormSkeleton = () => (
-	<div className="flex flex-col items-end">
-		<div className="flex w-full flex-col rounded ">
+	<div className="items-en flex flex-col">
+		<div className="flex w-full flex-col rounded dark:text-white ">
 			<ContactSkeleton />
 			<Divider />
 			<AddressSectionSkeleton />
