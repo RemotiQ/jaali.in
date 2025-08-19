@@ -91,19 +91,7 @@ export default async function Page(props: {
 	}
 
 	const firstImage = product.thumbnail;
-
-	// Safe parsing of product description
-	let description = null;
-	try {
-		if (product?.description) {
-			const parsedJson = JSON.parse(product.description);
-			description = parser.parse(parsedJson);
-		}
-	} catch (error) {
-		console.error("Error parsing product description:", error);
-		// Fallback: treat description as plain text if JSON parsing fails
-		description = product?.description ? [product.description] : null;
-	}
+	const description = product?.description ? parser.parse(JSON.parse(product.description)) : null;
 
 	const variants = product.variants;
 	const selectedVariantID = searchParams.variant;
