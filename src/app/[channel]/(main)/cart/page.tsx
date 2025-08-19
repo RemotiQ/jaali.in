@@ -18,7 +18,7 @@ export default async function Page(props: { params: Promise<{ channel: string }>
 	if (!checkout || checkout.lines.length < 1) {
 		return (
 			<section className="mx-auto max-w-7xl p-8">
-				<h1 className="mt-8 text-3xl font-bold text-neutral-900">Your Shopping Cart is empty</h1>
+				<h1 className="mt-8 text-3xl font-bold text-black dark:text-white">Your Shopping Cart is empty</h1>
 				<p className="my-12 text-sm text-neutral-500">
 					Looks like you haven’t added any items to the cart yet.
 				</p>
@@ -34,7 +34,7 @@ export default async function Page(props: { params: Promise<{ channel: string }>
 
 	return (
 		<section className="mx-auto max-w-7xl p-8">
-			<h1 className="mt-8 text-3xl font-bold text-neutral-900">Your Shopping Cart</h1>
+			<h1 className="mt-8 text-3xl font-bold text-black dark:text-white">Your Shopping Cart</h1>
 			<form className="mt-12">
 				<ul
 					data-testid="CartProductList"
@@ -43,7 +43,7 @@ export default async function Page(props: { params: Promise<{ channel: string }>
 				>
 					{checkout.lines.map((item) => (
 						<li key={item.id} className="flex py-4">
-							<div className="aspect-square h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border bg-neutral-50 sm:h-32 sm:w-32">
+							<div className="aspect-square h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border bg-neutral-50 sm:h-32 sm:w-32 dark:bg-neutral-800">
 								{item.variant?.product?.thumbnail?.url && (
 									<Image
 										src={item.variant.product.thumbnail.url}
@@ -63,14 +63,16 @@ export default async function Page(props: { params: Promise<{ channel: string }>
 												variantId: item.variant.id,
 											})}
 										>
-											<h2 className="font-medium text-neutral-700">{item.variant?.product?.name}</h2>
+											<h2 className="font-medium text-black dark:text-white">
+												{item.variant?.product?.name}
+											</h2>
 										</LinkWithChannel>
 										<p className="mt-1 text-sm text-neutral-500">{item.variant?.product?.category?.name}</p>
 										{item.variant.name !== item.variant.id && Boolean(item.variant.name) && (
 											<p className="mt-1 text-sm text-neutral-500">Variant: {item.variant.name}</p>
 										)}
 									</div>
-									<p className="text-right font-semibold text-neutral-900">
+									<p className="text-right font-semibold text-black dark:text-white">
 										{formatMoney(item.totalPrice.gross.amount, item.totalPrice.gross.currency)}
 									</p>
 								</div>

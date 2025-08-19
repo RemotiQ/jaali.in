@@ -18,7 +18,7 @@ export function Loader() {
 						fill="currentFill"
 					/>
 				</svg>
-				<span className="sr-only">Loading...</span>
+				<span className="sr-only dark:text-white">Loading...</span>
 			</div>
 		</div>
 	);

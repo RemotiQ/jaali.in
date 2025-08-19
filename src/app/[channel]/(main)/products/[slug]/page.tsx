@@ -91,7 +91,19 @@ export default async function Page(props: {
 	}
 
 	const firstImage = product.thumbnail;
-	const description = product?.description ? parser.parse(JSON.parse(product?.description)) : null;
+
+	// Safe parsing of product description
+	let description = null;
+	try {
+		if (product?.description) {
+			const parsedJson = JSON.parse(product.description);
+			description = parser.parse(parsedJson);
+		}
+	} catch (error) {
+		console.error("Error parsing product description:", error);
+		// Fallback: treat description as plain text if JSON parsing fails
+		description = product?.description ? [product.description] : null;
+	}
 
 	const variants = product.variants;
 	const selectedVariantID = searchParams.variant;
@@ -190,7 +202,7 @@ export default async function Page(props: {
 				</div>
 				<div className="flex flex-col pt-6 sm:col-span-1 sm:px-6 sm:pt-0 lg:col-span-3 lg:pt-16">
 					<div>
-						<h1 className="mb-4 flex-auto text-3xl font-medium tracking-tight text-neutral-900">
+						<h1 className="mb-4 flex-auto text-3xl font-medium tracking-tight text-black dark:text-white">
 							{product?.name}
 						</h1>
 						<p className="mb-8 text-sm " data-testid="ProductElement_Price">

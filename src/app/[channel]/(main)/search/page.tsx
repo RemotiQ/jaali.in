@@ -66,7 +66,9 @@ export default async function Page(props: {
 					/>
 				</div>
 			) : (
-				<h1 className="mx-auto pb-8 text-center text-xl font-semibold">Nothing found :(</h1>
+				<h1 className="mx-auto pb-8 text-center text-xl font-semibold text-black dark:text-white">
+					Nothing found :(
+				</h1>
 			)}
 		</section>
 	);
